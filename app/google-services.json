@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "114679994195",
+    "firebase_url": "https://workoutapp-8ed9e.firebaseio.com",
+    "project_id": "workoutapp-8ed9e",
+    "storage_bucket": "workoutapp-8ed9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114679994195:android:93802fe12dee87815c33a6",
+        "android_client_info": {
+          "package_name": "com.evolveworkoutapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114679994195-72l1tg9uai7k00v8iec5i9r0d4kmgmsk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_tB-ryGMRZ7CD6J5fmf7h3cBgpoxTD2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114679994195-72l1tg9uai7k00v8iec5i9r0d4kmgmsk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
