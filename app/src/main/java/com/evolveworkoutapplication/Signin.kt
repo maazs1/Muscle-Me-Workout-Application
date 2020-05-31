@@ -1,15 +1,22 @@
 package com.evolveworkoutapplication
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.animation.AlphaAnimation
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.Source
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_signin.*
 
@@ -18,7 +25,7 @@ class Signin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
-        //window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
         signup_button.setOnClickListener {
             username_editText.onEditorAction(EditorInfo.IME_ACTION_DONE)
             password_editText.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -44,7 +51,7 @@ class Signin : AppCompatActivity() {
 
     private fun checkExistingAccount(){
         val db = Firebase.firestore
-        val username = username_editText.text.toString()
+        val username = username_editText.text.toString().trim()
         val accountDB = db.collection("Account").document(username)
         accountDB.get()
             .addOnSuccessListener { document ->
@@ -52,9 +59,12 @@ class Signin : AppCompatActivity() {
                     errorField.setText("Username already exists")
                     errorview()
                 }else{
-                    val accountData = hashMapOf("password" to password_editText.text.toString())
+                    val accountData = hashMapOf("password" to password_editText.text.toString().trim())
                     accountDB.set(accountData)
-                    Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, bodyInformation::class.java)
+                    intent.putExtra("username", username)
+                    startActivity(intent)
+                    finish()
                 }
             }
             .addOnFailureListener { exception ->
@@ -79,7 +89,27 @@ class Signin : AppCompatActivity() {
         }
     }
 
-
+    private fun loginUser(){
+        val db = Firebase.firestore
+        val username = username_editText.text.toString().trim()
+        val accountDB = db.collection("Account").document(username)
+        accountDB.get()
+            .addOnSuccessListener { document ->
+                if(document.id == username_editText.text.toString() && document.data?.get("password") == password_editText.text.toString()) {
+                    //Log.d("mamidoc", document.data?.get("password").toString())
+                    val intent = Intent(this, bodyInformation::class.java)
+                    intent.putExtra("username", username)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    errorField.setText("Invalid Username or Password")
+                    errorview()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("error", exception.toString())
+            }
+    }
 
     fun errorview(){
         errorField.visibility=View.VISIBLE
@@ -89,4 +119,5 @@ class Signin : AppCompatActivity() {
             }
         }, 3000)
     }
+
 }

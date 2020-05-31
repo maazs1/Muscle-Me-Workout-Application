@@ -3,6 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#3F51B5</color>
-    <color name="gradStart">#000000</color>
+    <color name="gradStart">#01082E</color>
     <color name="gradEnd">#000000</color>
 </resources>

@@ -18,6 +18,12 @@
         </activity>
         <activity android:name=".Signin"
             android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".bodyInformation" />
+        <activity android:name=".muscleInformation"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
