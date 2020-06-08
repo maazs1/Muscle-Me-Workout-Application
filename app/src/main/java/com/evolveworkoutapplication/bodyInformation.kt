@@ -57,7 +57,7 @@ class bodyInformation : AppCompatActivity(){
     private fun continueBodyInfo(username: String?){
         val height_ft: Float= height_feet.text.toString().trim().toFloat()
         val height_inc: Float= height_inch.text.toString().trim().toFloat()
-        val age: Int = age_text.text.toString().trim().toInt()
+        val Age: Int = age_text.text.toString().trim().toInt()
         val weight: Float = weight_lbs.text.toString().trim().toFloat()
         val BMI :Float = (703*weight)/(pow((height_ft*12+height_inc).toFloat(),(2)))
         val Gender :String
@@ -67,13 +67,14 @@ class bodyInformation : AppCompatActivity(){
         else{
             Gender = "Female"
         }
-
         val db = Firebase.firestore
         val accountDB = db.collection("Account").document(username!!)
-        val profileInformation = hashMapOf("Height_Feet" to height_ft, "Height_Inch" to height_inc, "Age" to age, "Weight" to weight, "BMI" to BMI, "Gender" to Gender)
+        val profileInformation = hashMapOf("Height_Feet" to height_ft, "Height_Inch" to height_inc, "Age" to Age, "Weight" to weight, "BMI" to BMI, "Gender" to Gender)
         accountDB.update(profileInformation as Map<String, Any>)
         val intent = Intent(this, muscleInformation::class.java)
         intent.putExtra("username", username)
+        intent.putExtra("age", Age.toString())
+        intent.putExtra("gender", Gender)
         startActivity(intent)
         finish()
     }

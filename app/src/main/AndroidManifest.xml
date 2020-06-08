@@ -20,6 +20,12 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".bodyInformation" />
         <activity android:name=".muscleInformation"/>
+        <activity android:name=".Pop"
+            android:theme="@style/AppTheme.CustomTheme"
+            ></activity>
+        <activity android:name=".PopSide"
+            android:theme="@style/AppTheme.CustomTheme"
+            ></activity>
 
         <meta-data
             android:name="preloaded_fonts"

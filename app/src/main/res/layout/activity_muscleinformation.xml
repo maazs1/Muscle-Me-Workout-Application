@@ -1,6 +1,324 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/gradStart"
+    >
 
-</RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            >
+
+            <TextView
+                android:id="@+id/bodyinfotitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="sans-serif-black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Body Information"
+                android:textColor="#FFFFFFFF"
+                android:textSize="28sp" />
+
+            <ViewFlipper
+                android:id="@+id/mood_roster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/bodyinfotitle">
+            </ViewFlipper>
+
+            <TextView
+                android:id="@+id/FillInLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:autoSizeTextType="uniform"
+                android:textSize="22sp"
+                android:textColor="#FFFFFFFF"
+                android:text="Fill in the Following: "
+                android:layout_marginLeft="5dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:layout_below="@+id/mood_roster" />
+
+            <LinearLayout
+                android:id="@+id/L1"
+                android:layout_below="@+id/FillInLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:id="@+id/muscleInfo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp"
+                        android:textColor="#FFFFFF"
+                        android:autoSizeTextType="uniform"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        />
+                    <LinearLayout
+                        android:id="@+id/linearLayout1"
+                        android:layout_below="@id/muscleInfo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp">
+
+                        <EditText
+                            android:id="@+id/field1"
+                            android:paddingLeft="10dp"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#C0C0C0"
+                            android:textSize="22sp"
+                            android:autoSizeTextType="uniform"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:paddingRight="10dp"
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/login_bg"
+                            android:text="41"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="inch"
+                            android:autoSizeTextType="uniform"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/muscleInfo2"
+                        android:layout_below="@+id/linearLayout1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoSizeTextType="uniform"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/muscleInfo2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/field2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:autoSizeTextType="uniform"
+                            android:background="@drawable/login_bg"
+                            android:gravity="center"
+                            android:inputType="number|numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#C0C0C0"
+                            android:text="11"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:autoSizeTextType="uniform"
+                            android:text="inch"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/muscleInfo3"
+                        android:layout_below="@id/linearLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoSizeTextType="uniform"
+                        android:textSize="22sp"
+                        android:textColor="#FFFFFF"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_below="@+id/muscleInfo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp">
+
+                        <EditText
+                            android:id="@+id/field3"
+                            android:paddingLeft="10dp"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#C0C0C0"
+                            android:textSize="22sp"
+                            android:autoSizeTextType="uniform"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:inputType="number|numberDecimal"
+                            android:paddingRight="10dp"
+                            android:background="@drawable/login_bg"
+                            android:text="13"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="inch"
+                            android:autoSizeTextType="uniform"
+                            android:textSize="18sp"
+                            android:textColor="#FFFFFF"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/activityLevelText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activity Level"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:layout_below="@+id/linearLayout3"/>
+
+                    <Button
+                        android:id="@+id/littleActive"
+                        android:layout_below="@+id/activityLevelText"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:text="Little"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/pinkbutton_bg"
+                        android:textColor="#FFFFFFFF"/>
+
+                    <Button
+                        android:id="@+id/mediumActive"
+                        android:layout_below="@+id/littleActive"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:text="Fairly Active"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/pinkbutton_bg"
+                        android:textColor="#FFFFFFFF"/>
+
+                    <Button
+                        android:id="@+id/reallyActive"
+                        android:layout_below="@+id/mediumActive"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:text="Really Active"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/pinkbutton_bg"
+                        android:textColor="#FFFFFFFF"/>
+
+
+                    <Button
+                        android:id="@+id/continueMuscleInfo"
+                        android:layout_below="@id/reallyActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/redbutton"
+                        android:textColor="#FFFFFF"
+                        android:paddingRight="70dp"
+                        android:paddingLeft="70dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="16sp"
+                        android:text="Continue" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/imageDescrption"
+            android:layout_below="@id/L1"
+            android:text="@string/wheretomeasure"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#FFFFFF"/>
+
+        <LinearLayout
+            android:id="@+id/L2"
+            android:layout_below="@id/imageDescrption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/popup"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/rectangle_track"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:text="1" />
+            <Button
+                android:id="@+id/popupside"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/rectangle_thumb"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:text="2" />
+
+        </LinearLayout>
+
+        </RelativeLayout>
+
+</ScrollView>

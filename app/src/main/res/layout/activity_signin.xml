@@ -66,6 +66,7 @@
                             android:textColor="#FFFFFF" />
 
                         <EditText
+                            android:text="test1"
                             android:autoSizeTextType="uniform"
                             android:id="@+id/username_editText"
                             android:layout_width="match_parent"
@@ -94,6 +95,7 @@
                             android:textColor="#FFFFFF" />
 
                         <EditText
+                            android:text="1"
                             android:autoSizeTextType="uniform"
                             android:id="@+id/password_editText"
                             android:layout_width="match_parent"
@@ -129,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/pinkbutton_bg"
+                    android:background="@drawable/redbutton"
                     android:textColor="#FFFFFF"
                     android:paddingRight="70dp"
                     android:paddingLeft="70dp"
