@@ -101,7 +101,7 @@ class muscleInformation: AppCompatActivity() {
                 if (littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState() ||
                     mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState() ||
                     reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                    calculateBodyFatPercentage(age!!.toInt(), gender!!)
+                    calculateBodyFatPercentage(age!!.toInt(), gender!!, username)
                 }
                 else{
                     Toast.makeText(this, "Choose an Activity Level", Toast.LENGTH_SHORT).show()
@@ -123,23 +123,23 @@ class muscleInformation: AppCompatActivity() {
 
     }
 
-    private fun calculateBodyFatPercentage(age:Int, gender: String) {
+    private fun calculateBodyFatPercentage(age:Int, gender: String, username:String) {
         if (littleActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
-            lessActivityCalc(age, gender)
+            lessActivityCalc(age, gender, username)
         }
         if (mediumActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
-            fairlyActivityCalc(age, gender)
+            fairlyActivityCalc(age, gender, username)
         }
         if (reallyActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
-            highlyActivityCalc(age, gender)
+            highlyActivityCalc(age, gender, username)
         }
     }
 
-    private fun highlyActivityCalc(age:Int, gender:String){
+    private fun highlyActivityCalc(age:Int, gender:String, username:String){
         val abdominalCirc: Float
         val foreArmCirc :Float
         val thighCirc: Float
-        val bodyFatPercentage : Int
+        var bodyFatPercentage : Int =0
 
         if (age <27){
             if (gender == "Male"){
@@ -155,6 +155,7 @@ class muscleInformation: AppCompatActivity() {
                 foreArmCirc = field3.text.toString().trim().toFloat()
 
                 bodyFatPercentage = ((abdominalCirc*1.34)+ (thighCirc*2.08)-(foreArmCirc*4.31)-27.1).roundToInt()
+
             }
 
         }else if (age>26){
@@ -165,21 +166,30 @@ class muscleInformation: AppCompatActivity() {
 
                 bodyFatPercentage= ((buttockCirc*1.05)+(abdominalCirc*0.9)-(foreArmCirc*3)-25).roundToInt()
 
+
             }else if (gender == "Female"){
                 abdominalCirc = field1.text.toString().trim().toFloat()
                 thighCirc = field2.text.toString().trim().toFloat()
                 val calfCirc:Float = field3.text.toString().trim().toFloat()
+
                 bodyFatPercentage = ((abdominalCirc*1.19)+(thighCirc*1.24)-(calfCirc*1.45)-25.9).roundToInt()
 
             }
         }
+        addBodyFatToDatabase(bodyFatPercentage, username)
+        val intent = Intent(this, physiqueActivity::class.java)
+        intent.putExtra("username", username)
+        intent.putExtra("gender", gender)
+        startActivity(intent)
+        finish()
     }
 
-    private fun fairlyActivityCalc(age:Int, gender:String){
+    private fun fairlyActivityCalc(age:Int, gender:String, username:String){
+
         val abdominalCirc: Float
         val foreArmCirc: Float
         val thighCirc: Float
-        val bodyFatPercentage : Int
+        var bodyFatPercentage : Int =0
 
         if (age < 27){
             if (gender == "Male"){
@@ -195,6 +205,7 @@ class muscleInformation: AppCompatActivity() {
                 foreArmCirc = field3.text.toString().trim().toFloat()
 
                 bodyFatPercentage = ((abdominalCirc*1.34)+(thighCirc*2.08)-(foreArmCirc*4.31)-22.6).roundToInt()
+
             }
         }else if (age >26){
             if (gender == "Male"){
@@ -210,15 +221,22 @@ class muscleInformation: AppCompatActivity() {
                 val calfCirc: Float = field3.text.toString().trim().toFloat()
 
                 bodyFatPercentage = ((abdominalCirc*1.19)+(thighCirc*1.24)-(calfCirc*1.45)-21.4).roundToInt()
+
             }
         }
+        addBodyFatToDatabase(bodyFatPercentage, username)
+        val intent = Intent(this, physiqueActivity::class.java)
+        intent.putExtra("username", username)
+        intent.putExtra("gender", gender)
+        startActivity(intent)
+        finish()
     }
 
-    private fun lessActivityCalc(age:Int, gender: String){
+    private fun lessActivityCalc(age:Int, gender: String, username:String){
         val foreArmCirc: Float
         val abdominalCirc :Float
         val thighCirc : Float
-        val bodyFatPercentage : Int
+        var bodyFatPercentage : Int = 0
 
         if (age < 27){
             if (gender=="Male"){
@@ -228,12 +246,14 @@ class muscleInformation: AppCompatActivity() {
 
                 bodyFatPercentage = ((upperArmCirc*3.7)+(abdominalCirc*1.31)-(foreArmCirc*5.43)-10.2).roundToInt()
 
+
             }else if (gender =="Female"){
                 abdominalCirc = field1.text.toString().trim().toFloat()
                 thighCirc = field2.text.toString().trim().toFloat()
                 foreArmCirc = field3.text.toString().trim().toFloat()
 
                 bodyFatPercentage = ((abdominalCirc*1.34)+(thighCirc*2.08)-(foreArmCirc*4.31)-19.6).roundToInt()
+
             }
         }else if (age >26){
             if (gender =="Male"){
@@ -243,15 +263,30 @@ class muscleInformation: AppCompatActivity() {
 
                 bodyFatPercentage = ((buttockCirc*1.05)+(abdominalCirc*0.9)-(foreArmCirc*3)-15).roundToInt()
 
+
             }else if (gender == "Female"){
                 abdominalCirc = field1.text.toString().trim().toFloat()
                 thighCirc = field2.text.toString().trim().toFloat()
                 val calfCirc:Float = field3.text.toString().trim().toFloat()
 
                 bodyFatPercentage = ((abdominalCirc*1.19)+(thighCirc*1.24)-(calfCirc*1.45)-18.4).roundToInt()
-            }
 
+            }
         }
+        addBodyFatToDatabase(bodyFatPercentage, username)
+        val intent = Intent(this, physiqueActivity::class.java)
+        intent.putExtra("username", username)
+        intent.putExtra("gender", gender)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun addBodyFatToDatabase(bodyFatPercentage:Int, username:String){
+        val db = Firebase.firestore
+        val accountDB = db.collection("Account").document(username!!)
+        val bodyFatInformation = hashMapOf("Body_Fat_Percentage" to bodyFatPercentage)
+        accountDB.update(bodyFatInformation as Map<String, Any>)
+
     }
 //    private fun setFlipper(imgs: Int){
 //        val image = ImageView(applicationContext)

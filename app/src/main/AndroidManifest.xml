@@ -26,7 +26,7 @@
         <activity android:name=".PopSide"
             android:theme="@style/AppTheme.CustomTheme"
             ></activity>
-
+        <activity android:name=".physiqueActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
