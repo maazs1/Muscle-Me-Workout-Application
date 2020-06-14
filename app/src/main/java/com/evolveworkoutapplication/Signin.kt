@@ -85,7 +85,7 @@ class Signin : AppCompatActivity() {
             login_text.setText("Login")
             signup_button.setText("SIGNUP")
             login_button.setText("LOGIN NOW")
-            login_button.setBackgroundResource(R.drawable.pinkbutton_bg)
+            login_button.setBackgroundResource(R.drawable.redbutton)
         }
     }
 

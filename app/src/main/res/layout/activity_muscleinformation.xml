@@ -215,18 +215,55 @@
                         android:layout_marginTop="30dp"
                         android:layout_below="@+id/linearLayout3"/>
 
+
                     <Button
                         android:id="@+id/littleActive"
-                        android:layout_below="@+id/activityLevelText"
                         android:layout_marginTop="10dp"
                         android:layout_width="122dp"
                         android:layout_height="wrap_content"
                         android:text="Little"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:background="@drawable/bluebutton"
+                        android:textColor="#FFFFFFFF"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/pinkbutton_bg"
-                        android:textColor="#FFFFFFFF"/>
+                        android:layout_below="@+id/activityLevelText"
+                        android:layout_alignParentEnd="true"/>
+
+                    <TextView
+                        android:layout_below="@+id/littleActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/littleActive"
+                        android:text="[ 4hr-6hr per week ]"
+                        android:textColor="#FFFFFFFF"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="15dp"
+                        android:textStyle="italic"
+                        />
+                    <TextView
+                        android:layout_below="@+id/activityLevelText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/littleActive"
+                        android:text="@string/lessActivity"
+                        android:textColor="#FFFFFFFF"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginRight="15dp"
+                        android:textStyle="italic"
+                        />
+
+                    <TextView
+                        android:layout_below="@+id/mediumActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/littleActive"
+                        android:text="[ >6hr per week ]"
+                        android:textColor="#FFFFFFFF"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginRight="15dp"
+                        android:textStyle="italic"
+                        />
 
                     <Button
                         android:id="@+id/mediumActive"
@@ -238,7 +275,7 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/pinkbutton_bg"
+                        android:background="@drawable/bluebutton"
                         android:textColor="#FFFFFFFF"/>
 
                     <Button
@@ -251,7 +288,7 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/pinkbutton_bg"
+                        android:background="@drawable/bluebutton"
                         android:textColor="#FFFFFFFF"/>
 
 
@@ -270,7 +307,6 @@
                         android:layout_centerHorizontal="true"
                         android:textSize="16sp"
                         android:text="Continue" />
-
 
                 </RelativeLayout>
 

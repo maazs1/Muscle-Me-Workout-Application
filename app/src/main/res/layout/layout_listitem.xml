@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="1dp"
+    android:background="@color/gradStart">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/gradStart">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gradStart">
+
+            <TextView
+                android:id="@+id/textcardtop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#FFFFFFFF"
+                android:autoSizeTextType="uniform"/>
+
+            <ImageView
+                android:layout_below="@+id/textcardtop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imagecard"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/male_physique_first"
+                android:onClick="GetId"
+                />
+
+            <TextView
+                android:id="@+id/textcardbottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imagecard"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#FFFFFFFF"
+                android:autoSizeTextType="uniform"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

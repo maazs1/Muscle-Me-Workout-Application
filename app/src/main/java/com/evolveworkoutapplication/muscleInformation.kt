@@ -55,40 +55,40 @@ class muscleInformation: AppCompatActivity() {
             startActivity(Intent(this, PopSide::class.java))
         }
         littleActive.setOnClickListener {
-            if (littleActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                if(mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()
-                    || reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                    mediumActive.setBackgroundResource(R.drawable.pinkbutton_bg)
-                    reallyActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+            if (littleActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                if(mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()
+                    || reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                    mediumActive.setBackgroundResource(R.drawable.bluebutton)
+                    reallyActive.setBackgroundResource(R.drawable.bluebutton)
                 }
-                littleActive.setBackgroundResource(R.drawable.greenbutton_bg)
+                littleActive.setBackgroundResource(R.drawable.clickedbutton)
             }else{
-                littleActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+                littleActive.setBackgroundResource(R.drawable.bluebutton)
             }
         }
         mediumActive.setOnClickListener {
-            if (mediumActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                if(littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()
-                    || reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                    littleActive.setBackgroundResource(R.drawable.pinkbutton_bg)
-                    reallyActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+            if (mediumActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                if(littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()
+                    || reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                    littleActive.setBackgroundResource(R.drawable.bluebutton)
+                    reallyActive.setBackgroundResource(R.drawable.bluebutton)
                 }
-                mediumActive.setBackgroundResource(R.drawable.greenbutton_bg)
+                mediumActive.setBackgroundResource(R.drawable.clickedbutton)
             }else{
-                mediumActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+                mediumActive.setBackgroundResource(R.drawable.bluebutton)
             }
         }
 
         reallyActive.setOnClickListener {
-            if (reallyActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                if(littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()
-                    || mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
-                    littleActive.setBackgroundResource(R.drawable.pinkbutton_bg)
-                    mediumActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+            if (reallyActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                if(littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()
+                    || mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
+                    littleActive.setBackgroundResource(R.drawable.bluebutton)
+                    mediumActive.setBackgroundResource(R.drawable.bluebutton)
                 }
-                reallyActive.setBackgroundResource(R.drawable.greenbutton_bg)
+                reallyActive.setBackgroundResource(R.drawable.clickedbutton)
             }else{
-                reallyActive.setBackgroundResource(R.drawable.pinkbutton_bg)
+                reallyActive.setBackgroundResource(R.drawable.bluebutton)
             }
         }
 
@@ -98,9 +98,9 @@ class muscleInformation: AppCompatActivity() {
             field3.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
             if (field1.text.toString().trim().isNotEmpty() && field2.text.toString().trim().isNotEmpty() && field3.text.toString().trim().isNotEmpty()){
-                if (littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState() ||
-                    mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState() ||
-                    reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.pinkbutton_bg).getConstantState()){
+                if (littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState() ||
+                    mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState() ||
+                    reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
                     calculateBodyFatPercentage(age!!.toInt(), gender!!, username)
                 }
                 else{
@@ -112,25 +112,16 @@ class muscleInformation: AppCompatActivity() {
             }
         }
 
-//        val flipperImages = intArrayOf(
-//            R.drawable.musclefrontimg,
-//            R.drawable.musclesideimg
-//        )
-//
-//        for (i in 0 until flipperImages.size){
-//            setFlipper(flipperImages[i])
-//        }
-
     }
 
     private fun calculateBodyFatPercentage(age:Int, gender: String, username:String) {
-        if (littleActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
+        if (littleActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.clickedbutton).getConstantState()){
             lessActivityCalc(age, gender, username)
         }
-        if (mediumActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
+        if (mediumActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.clickedbutton).getConstantState()){
             fairlyActivityCalc(age, gender, username)
         }
-        if (reallyActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.greenbutton_bg).getConstantState()){
+        if (reallyActive.getBackground().getConstantState()==getResources().getDrawable(R.drawable.clickedbutton).getConstantState()){
             highlyActivityCalc(age, gender, username)
         }
     }
@@ -288,21 +279,4 @@ class muscleInformation: AppCompatActivity() {
         accountDB.update(bodyFatInformation as Map<String, Any>)
 
     }
-//    private fun setFlipper(imgs: Int){
-//        val image = ImageView(applicationContext)
-//        image.setBackgroundResource(imgs)
-//        mood_roster.addView(image)
-//    }
-//    fun previousView(view: View?) {
-//        viewFlipper.setInAnimation(this, android.R.anim.slide_in_left)
-//        viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)
-//        viewFlipper.showPrevious()
-//    }
-
-//    fun nextView(view: View?) {
-//        viewFlipper.setInAnimation(this, R.anim.slide_in_right)
-//        viewFlipper.setOutAnimation(this, R.anim.slide_out_left)
-//        viewFlipper.showNext()
-//    }
-
 }

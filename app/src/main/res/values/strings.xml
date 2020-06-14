@@ -2,5 +2,6 @@
     <string name="app_name">WorkoutApplication</string>
     <string name="wheretomeasure"><u>How To Measure</u></string>
     <string name="signin"><u>Signup</u></string>
+    <string name="lessActivity">[ \u003C4hr per week ]</string>
 </resources>
 

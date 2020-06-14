@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gradStart">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mood_roster_title"
+            android:layout_width="match_parent"
+            android:layout_height="113dp"
+            android:letterSpacing="0.1"
+            android:gravity="center"
+            android:text="What is your goal?"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+        <HorizontalScrollView
+            android:id="@+id/physique_roster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:foregroundGravity="center"
+            >
+
+            <LinearLayout
+                android:id="@+id/gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/continuePhysique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/redbutton"
+            android:textColor="#FFFFFF"
+            android:paddingRight="70dp"
+            android:paddingLeft="70dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:text="Continue" />
+
+    </LinearLayout>
+
+
+
+</ScrollView>
