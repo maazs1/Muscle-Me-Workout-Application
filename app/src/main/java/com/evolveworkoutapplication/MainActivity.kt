@@ -1,5 +1,6 @@
 package com.evolveworkoutapplication
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,9 +13,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler().postDelayed({
-            val intent = Intent(this, Signin::class.java)
-            startActivity(intent)
-            finish()
+            val sp = getSharedPreferences("secure", MODE_PRIVATE)
+            if(sp.getBoolean("logged", false)){
+                val intent = Intent(this, homePage::class.java)
+                intent.putExtra("Activity", "Splash")
+                startActivity(intent)
+                finish()
+            }
+            else{
+                val intent = Intent(this, Signin::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+
         }, 3000)
     }
 }

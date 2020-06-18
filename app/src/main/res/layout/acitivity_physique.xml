@@ -10,14 +10,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageButton
+            android:id="@+id/backButtonPhysique"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_arrow_back_blue_short"
+            android:background="@color/gradStart"/>
+
         <TextView
             android:id="@+id/mood_roster_title"
             android:layout_width="match_parent"
-            android:layout_height="113dp"
+            android:layout_height="wrap_content"
             android:letterSpacing="0.1"
             android:gravity="center"
             android:text="What is your goal?"
             android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"
             android:textSize="30sp" />
 
         <HorizontalScrollView

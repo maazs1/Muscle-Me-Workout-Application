@@ -1,7 +1,6 @@
 package com.evolveworkoutapplication
 
 import android.content.Intent
-import java.math.BigDecimal
 import java.math.RoundingMode
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,32 +10,32 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.acitivity_physique.*
-import kotlinx.android.synthetic.main.activity_signin.*
 import java.math.BigInteger
 
 class physiqueActivity : AppCompatActivity() {
 
-    private var mGallery: LinearLayout? = null
     private var mImgIds: IntArray? = null
     private var topName = ArrayList<String>(4)
     private var bottomName = ArrayList<String>(4)
-    private val mInflater: LayoutInflater? = null
-    private val horizontalScrollView: HorizontalScrollView? = null
     private var flag: Int = 0
     private var physique: String? = null
     var heightFeet:Double?=null
     var heightInch:Double?=null
     var username: String?=null
     var gender :String? =null
+    var age :String? =null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.acitivity_physique)
 
+
         val bundle: Bundle? = intent.extras
         username= bundle?.getString("username")
         gender= bundle?.getString("gender")
+        age = bundle?.getString("age")
+
 
         topName.add("LEAN"); topName.add("FIT"); topName.add("ATHLETIC"); topName.add("STURDY")
         bottomName.add("THIN"); bottomName.add("AVERAGE");bottomName.add("MUSCULAR");bottomName.add("HUSKY/HEAVY")
@@ -52,29 +51,43 @@ class physiqueActivity : AppCompatActivity() {
         InitView()
 
         continuePhysique.setOnClickListener {
-            checkFlag(gender,username)
-            nextActivity()
+            if (flag==0){
+                Toast.makeText(this, "Select a Physique", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                checkFlag(gender,username)
+                nextActivity()
+            }
+        }
+
+        backButtonPhysique.setOnClickListener{
+            val intent = Intent(this, muscleInformation::class.java)
+            intent.putExtra("username", username)
+            intent.putExtra("gender", gender)
+            intent.putExtra("age", age)
+            startActivity(intent)
+            finish()
         }
     }
 
     private fun nextActivity(){
         val intent = Intent(this, startingPoint::class.java)
         intent.putExtra("username", username)
+        intent.putExtra("gender", gender)
+        intent.putExtra("age", age)
         startActivity(intent)
         finish()
     }
 
     private fun checkFlag(gender: String?, username:String?) {
-        if (flag == 0) {
-            Toast.makeText(this, "Select a Physique", Toast.LENGTH_SHORT).show()
-        } else {
-            when (flag) {
-                1 -> physique = "Lean"
-                2 -> physique = "Fit"
-                3 -> physique = "Athletic"
-                4 -> physique = "Stocky"
-            }
+
+        when (flag) {
+            1 -> physique = "Lean"
+            2 -> physique = "Fit"
+            3 -> physique = "Athletic"
+            4 -> physique = "Stocky"
         }
+
         calculateGoal(gender, username)
     }
     private fun calculateGoal(gender: String?, username:String?){
@@ -146,10 +159,9 @@ class physiqueActivity : AppCompatActivity() {
         var goalMuscleMass:Float = goalWeight-(goalWeight*perbodyFat)
         goalMuscleMass= goalMuscleMass.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toFloat()
 
-        Toast.makeText(this, goalMuscleMass.toString(), Toast.LENGTH_SHORT).show()
 
         val goalData = hashMapOf("Goal_Weight" to goalWeight, "Goal_Muscle_Mass" to goalMuscleMass)
-        accountDB.set(goalData)
+        accountDB.update(goalData as Map<String, Any>)
     }
 
     fun pow(n: Double, exp: Int): Float{
@@ -157,8 +169,6 @@ class physiqueActivity : AppCompatActivity() {
     }
 
     fun GetId(v: View) {
-        //for (i in 0 until mImgIds!!.size){
-        //if(v.background.constantState  == mImgIds!!.get(i)){
         flag = 0
         for (i in 0 until mImgIds!!.size) {
             if (v.getTag() == i) {

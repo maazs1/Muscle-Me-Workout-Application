@@ -20,6 +20,7 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".bodyInformation" />
         <activity android:name=".muscleInformation"/>
+        <activity android:name=".homePage"/>
         <activity android:name=".Pop"
             android:theme="@style/AppTheme.CustomTheme"
             ></activity>
@@ -27,6 +28,7 @@
             android:theme="@style/AppTheme.CustomTheme"
             ></activity>
         <activity android:name=".physiqueActivity"/>
+        <activity android:name=".startingPoint"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

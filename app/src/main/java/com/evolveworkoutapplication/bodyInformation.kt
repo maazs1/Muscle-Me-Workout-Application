@@ -1,5 +1,6 @@
 package com.evolveworkoutapplication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -8,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_bodyinformation.*
-import kotlinx.android.synthetic.main.activity_signin.*
 import java.math.BigInteger
 
 
@@ -18,16 +18,44 @@ class bodyInformation : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bodyinformation)
 
+
         val bundle: Bundle? = intent.extras
         val username = bundle!!.getString("username")
         username?.let { displayname(it) }
+
+        val heightFtOrg = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("height_ft", " ")
+        val heightIcOrg = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("height_ic", " ")
+        val weightLbOrg = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("weight_lb", " ")
+        val ageOrg = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("ageT", " ")
+
+
+        height_feet.setText(heightFtOrg)
+        height_inch.setText(heightIcOrg)
+        weight_lbs.setText(weightLbOrg)
+        age_text.setText(ageOrg)
 
         continueBodyInfo.setOnClickListener {
             height_feet.onEditorAction(EditorInfo.IME_ACTION_DONE)
             height_inch.onEditorAction(EditorInfo.IME_ACTION_DONE)
             weight_lbs.onEditorAction(EditorInfo.IME_ACTION_DONE)
             age_text.onEditorAction(EditorInfo.IME_ACTION_DONE)
+
+            val Age: Int = age_text.text.toString().trim().toInt()
+
+            getSharedPreferences(username, MODE_PRIVATE)
+                .edit()
+                .putString("height_ft", height_feet.text.toString().trim())
+                .putString("height_ic", height_inch.text.toString().trim())
+                .putString("weight_lb", weight_lbs.text.toString().trim())
+                .putString("ageT", age_text.text.toString().trim())
+                .apply()
+
             checkFields(username)
+
         }
 
         maleButton.setOnClickListener{
@@ -102,5 +130,10 @@ class bodyInformation : AppCompatActivity(){
                 nameText.setText(document.id)
             }
     }
+
 }
+
+
+
+
 

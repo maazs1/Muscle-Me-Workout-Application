@@ -1,6 +1,7 @@
 package com.evolveworkoutapplication
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -59,6 +60,7 @@ class Signin : AppCompatActivity() {
                     errorField.setText("Username already exists")
                     errorview()
                 }else{
+
                     val accountData = hashMapOf("password" to password_editText.text.toString().trim())
                     accountDB.set(accountData)
                     val intent = Intent(this, bodyInformation::class.java)
@@ -96,7 +98,8 @@ class Signin : AppCompatActivity() {
         accountDB.get()
             .addOnSuccessListener { document ->
                 if(document.id == username_editText.text.toString() && document.data?.get("password") == password_editText.text.toString()) {
-                    //Log.d("mamidoc", document.data?.get("password").toString())
+
+
                     val intent = Intent(this, bodyInformation::class.java)
                     intent.putExtra("username", username)
                     startActivity(intent)
@@ -110,6 +113,7 @@ class Signin : AppCompatActivity() {
                 Log.d("error", exception.toString())
             }
     }
+
 
     fun errorview(){
         errorField.visibility=View.VISIBLE

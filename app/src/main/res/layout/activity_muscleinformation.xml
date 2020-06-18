@@ -14,6 +14,13 @@
             android:layout_centerInParent="true"
             >
 
+        <ImageButton
+            android:id="@+id/backButtonMuscle"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_arrow_back_blue_short"
+            android:background="@color/gradStart"/>
+
             <TextView
                 android:id="@+id/bodyinfotitle"
                 android:layout_centerHorizontal="true"
@@ -89,7 +96,7 @@
                             android:id="@+id/field1"
                             android:paddingLeft="10dp"
                             android:layout_width="100dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="35dp"
                             android:textColor="#C0C0C0"
                             android:textSize="22sp"
                             android:autoSizeTextType="uniform"
@@ -98,7 +105,7 @@
                             android:paddingRight="10dp"
                             android:inputType="number|numberDecimal"
                             android:background="@drawable/login_bg"
-                            android:text="41"/>
+                            />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -120,7 +127,7 @@
                         android:textColor="#FFFFFF"
                         android:textSize="22sp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"/>
+                        android:layout_marginTop="25dp"/>
 
                     <LinearLayout
                         android:id="@+id/linearLayout2"
@@ -135,7 +142,7 @@
                         <EditText
                             android:id="@+id/field2"
                             android:layout_width="100dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:autoSizeTextType="uniform"
                             android:background="@drawable/login_bg"
@@ -144,7 +151,6 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:textColor="#C0C0C0"
-                            android:text="11"
                             android:textSize="22sp" />
 
                         <TextView
@@ -167,7 +173,7 @@
                         android:textSize="22sp"
                         android:textColor="#FFFFFF"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"/>
+                        android:layout_marginTop="25dp"/>
 
                     <LinearLayout
                         android:id="@+id/linearLayout3"
@@ -182,7 +188,7 @@
                             android:id="@+id/field3"
                             android:paddingLeft="10dp"
                             android:layout_width="100dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="35dp"
                             android:textColor="#C0C0C0"
                             android:textSize="22sp"
                             android:autoSizeTextType="uniform"
@@ -190,8 +196,7 @@
                             android:gravity="center"
                             android:inputType="number|numberDecimal"
                             android:paddingRight="10dp"
-                            android:background="@drawable/login_bg"
-                            android:text="13"/>
+                            android:background="@drawable/login_bg" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -212,7 +217,7 @@
                         android:textColor="#FFFFFFFF"
                         android:textSize="22sp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="25dp"
                         android:layout_below="@+id/linearLayout3"/>
 
 
@@ -297,7 +302,7 @@
                         android:layout_below="@id/reallyActive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="25dp"
                         android:background="@drawable/redbutton"
                         android:textColor="#FFFFFF"
                         android:paddingRight="70dp"

@@ -108,10 +108,9 @@
                         android:textColor="#FFFFFF"
                         android:textAllCaps="true"/>
                     <EditText
-                        android:text="2"
                         android:id="@+id/height_feet"
                         android:layout_width="80dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:textColor="#C0C0C0"
                         android:textSize="22sp"
                         android:layout_marginLeft="20dp"
@@ -130,19 +129,18 @@
                         android:autoSizeTextType="uniform"
                         android:textColor="#FFFFFF" />
                     <EditText
-                        android:text="2"
                         android:id="@+id/height_inch"
-                        android:gravity="center"
-                        android:paddingLeft="10dp"
-                        android:autoSizeTextType="uniform"
                         android:layout_width="80dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:textColor="#C0C0C0"
                         android:textSize="22sp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:autoSizeTextType="uniform"
                         android:paddingRight="10dp"
+                        android:background="@drawable/login_bg"
+                        android:paddingLeft="10dp"
                         android:inputType="number"
-                        android:background="@drawable/login_bg"/>
+                        android:gravity="center"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -171,11 +169,10 @@
                         android:textColor="#FFFFFF"
                         android:textAllCaps="true"/>
                     <EditText
-                        android:text="2"
                         android:id="@+id/weight_lbs"
                         android:paddingLeft="10dp"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:textColor="#C0C0C0"
                         android:textSize="22sp"
                         android:autoSizeTextType="uniform"
@@ -213,10 +210,9 @@
                         android:textColor="#FFFFFF"
                         android:textAllCaps="true"/>
                     <EditText
-                        android:text="2"
                         android:id="@+id/age_text"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:textColor="#C0C0C0"
                         android:textSize="22sp"
                         android:layout_marginLeft="20dp"

@@ -1,6 +1,7 @@
 package com.evolveworkoutapplication
 
 import android.content.ComponentCallbacks2
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -9,19 +10,41 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_muscleinformation.*
+import kotlinx.android.synthetic.main.activity_signin.*
 import kotlin.math.roundToInt
 
 
 class muscleInformation: AppCompatActivity() {
+    private var username:String?= null
+    private var age:String?= null
+    private var gender:String?= null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_muscleinformation)
 
+
+        val field1Org = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("field1", " ")
+        val field2Org = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("field2", " ")
+        val field3Org = getSharedPreferences(username, Context.MODE_PRIVATE)
+            .getString("field3", " ")
+
+
+        field1.setText(field1Org)
+        field2.setText(field2Org)
+        field3.setText(field3Org)
+
         val bundle: Bundle? = intent.extras
-        val username: String? = bundle?.getString("username")
-        val age: String? = bundle?.getString("age")
-        val gender: String? =bundle?.getString("gender")
+        username = bundle?.getString("username")
+        age = bundle?.getString("age")
+        gender =bundle?.getString("gender")
+
+
+
 
         val db = Firebase.firestore
         val accountDB = db.collection("Account").document(username!!)
@@ -97,11 +120,18 @@ class muscleInformation: AppCompatActivity() {
             field2.onEditorAction(EditorInfo.IME_ACTION_DONE)
             field3.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
+            getSharedPreferences(username, MODE_PRIVATE)
+                .edit()
+                .putString("field1", field1.text.toString().trim())
+                .putString("field2", field2.text.toString().trim())
+                .putString("field3", field3.text.toString().trim())
+                .apply()
+
             if (field1.text.toString().trim().isNotEmpty() && field2.text.toString().trim().isNotEmpty() && field3.text.toString().trim().isNotEmpty()){
                 if (littleActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState() ||
                     mediumActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState() ||
                     reallyActive.getBackground().getConstantState()!=getResources().getDrawable(R.drawable.bluebutton).getConstantState()){
-                    calculateBodyFatPercentage(age!!.toInt(), gender!!, username)
+                    calculateBodyFatPercentage(age!!.toInt(), gender!!, username!!)
                 }
                 else{
                     Toast.makeText(this, "Choose an Activity Level", Toast.LENGTH_SHORT).show()
@@ -110,6 +140,13 @@ class muscleInformation: AppCompatActivity() {
             else{
                 Toast.makeText(this, "Missing Fields", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        backButtonMuscle.setOnClickListener{
+            val intent = Intent(this, bodyInformation::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -170,6 +207,7 @@ class muscleInformation: AppCompatActivity() {
         addBodyFatToDatabase(bodyFatPercentage, username)
         val intent = Intent(this, physiqueActivity::class.java)
         intent.putExtra("username", username)
+        intent.putExtra("age",age.toString())
         intent.putExtra("gender", gender)
         startActivity(intent)
         finish()
@@ -219,6 +257,7 @@ class muscleInformation: AppCompatActivity() {
         val intent = Intent(this, physiqueActivity::class.java)
         intent.putExtra("username", username)
         intent.putExtra("gender", gender)
+        intent.putExtra("age", age.toString())
         startActivity(intent)
         finish()
     }
@@ -268,6 +307,7 @@ class muscleInformation: AppCompatActivity() {
         val intent = Intent(this, physiqueActivity::class.java)
         intent.putExtra("username", username)
         intent.putExtra("gender", gender)
+        intent.putExtra("age", age.toString())
         startActivity(intent)
         finish()
     }
