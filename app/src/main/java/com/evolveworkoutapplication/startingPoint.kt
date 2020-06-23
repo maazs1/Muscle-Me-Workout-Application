@@ -19,6 +19,11 @@ class startingPoint : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_startpoint)
 
+        val bundle: Bundle? = intent.extras
+        username= bundle?.getString("username")
+        age = bundle?.getString("age")
+        gender= bundle?.getString("gender")
+
         val text1Org = getSharedPreferences(username, MODE_PRIVATE)
             .getString("text1", " ")
         val text2Org = getSharedPreferences(username, MODE_PRIVATE)
@@ -50,12 +55,6 @@ class startingPoint : AppCompatActivity() {
         repDeadlift.setText(text8Org)
         weightTRow.setText(text9Org)
         repTRow.setText(text10Org)
-
-        val bundle: Bundle? = intent.extras
-        username= bundle?.getString("username")
-        age = bundle?.getString("age")
-        gender= bundle?.getString("gender")
-
 
         continueStartingPoint.setOnClickListener {
             weightBP.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -135,13 +134,11 @@ class startingPoint : AppCompatActivity() {
             "Max_Rep_Squat" to repSquat.text.toString().trim(), "Max_Rep_Deadlift" to repDeadlift.text.toString().trim(),
             "Max_Rep_TRow" to repTRow.text.toString().trim())
         accountDB.update(startingPointInfo as Map<String, Any>)
-        val intent = Intent(this, homePage::class.java)
+        val intent = Intent(this, loadingActivity::class.java)
         intent.putExtra("username", username)
         intent.putExtra("Activity", "SP");
         startActivity(intent)
         finish()
-
-
     }
 
 }

@@ -11,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.acitivity_physique.*
 import java.math.BigInteger
+import kotlin.math.roundToInt
 
 class physiqueActivity : AppCompatActivity() {
 
@@ -153,14 +154,14 @@ class physiqueActivity : AppCompatActivity() {
         val db = Firebase.firestore
         val accountDB = db.collection("Account").document(username!!)
 
-        var goalWeight:Float = ((Lean*(pow(((heightFeet!! *12)+ heightInch!!),2)))/703).toFloat()
-        goalWeight= goalWeight.toBigDecimal().setScale(2, RoundingMode.UP).toFloat()
+        var goalWeight: Int = ((Lean*(pow(((heightFeet!! *12)+ heightInch!!),2)))/703).toFloat().roundToInt()
+        //goalWeight= goalWeight.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toFloat()
 
-        var goalMuscleMass:Float = goalWeight-(goalWeight*perbodyFat)
-        goalMuscleMass= goalMuscleMass.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toFloat()
+        var goalMuscleMass: Int = goalWeight-(goalWeight*perbodyFat).roundToInt()
+        //goalMuscleMass= goalMuscleMass.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toFloat()
 
 
-        val goalData = hashMapOf("Goal_Weight" to goalWeight, "Goal_Muscle_Mass" to goalMuscleMass)
+        val goalData = hashMapOf("Goal_Weight" to goalWeight, "Goal_Muscle_Mass" to goalMuscleMass, "Flag" to flag)
         accountDB.update(goalData as Map<String, Any>)
     }
 

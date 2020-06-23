@@ -44,7 +44,6 @@ class bodyInformation : AppCompatActivity(){
             weight_lbs.onEditorAction(EditorInfo.IME_ACTION_DONE)
             age_text.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
-            val Age: Int = age_text.text.toString().trim().toInt()
 
             getSharedPreferences(username, MODE_PRIVATE)
                 .edit()

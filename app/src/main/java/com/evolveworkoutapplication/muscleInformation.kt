@@ -25,25 +25,21 @@ class muscleInformation: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_muscleinformation)
 
-
-        val field1Org = getSharedPreferences(username, Context.MODE_PRIVATE)
-            .getString("field1", " ")
-        val field2Org = getSharedPreferences(username, Context.MODE_PRIVATE)
-            .getString("field2", " ")
-        val field3Org = getSharedPreferences(username, Context.MODE_PRIVATE)
-            .getString("field3", " ")
-
-
-        field1.setText(field1Org)
-        field2.setText(field2Org)
-        field3.setText(field3Org)
-
         val bundle: Bundle? = intent.extras
         username = bundle?.getString("username")
         age = bundle?.getString("age")
         gender =bundle?.getString("gender")
 
+        val field1Org = getSharedPreferences(username, MODE_PRIVATE)
+            .getString("field1", " ")
+        val field2Org = getSharedPreferences(username, MODE_PRIVATE)
+            .getString("field2", " ")
+        val field3Org = getSharedPreferences(username, MODE_PRIVATE)
+            .getString("field3", " ")
 
+        field1.setText(field1Org)
+        field2.setText(field2Org)
+        field3.setText(field3Org)
 
 
         val db = Firebase.firestore
@@ -68,8 +64,6 @@ class muscleInformation: AppCompatActivity() {
                 muscleInfo3.setText("Calf Circumference")
             }
         }
-
-
 
         popup.setOnClickListener {
             startActivity(Intent(this, Pop::class.java))
@@ -205,12 +199,7 @@ class muscleInformation: AppCompatActivity() {
             }
         }
         addBodyFatToDatabase(bodyFatPercentage, username)
-        val intent = Intent(this, physiqueActivity::class.java)
-        intent.putExtra("username", username)
-        intent.putExtra("age",age.toString())
-        intent.putExtra("gender", gender)
-        startActivity(intent)
-        finish()
+
     }
 
     private fun fairlyActivityCalc(age:Int, gender:String, username:String){
@@ -254,12 +243,7 @@ class muscleInformation: AppCompatActivity() {
             }
         }
         addBodyFatToDatabase(bodyFatPercentage, username)
-        val intent = Intent(this, physiqueActivity::class.java)
-        intent.putExtra("username", username)
-        intent.putExtra("gender", gender)
-        intent.putExtra("age", age.toString())
-        startActivity(intent)
-        finish()
+
     }
 
     private fun lessActivityCalc(age:Int, gender: String, username:String){
@@ -304,19 +288,29 @@ class muscleInformation: AppCompatActivity() {
             }
         }
         addBodyFatToDatabase(bodyFatPercentage, username)
-        val intent = Intent(this, physiqueActivity::class.java)
-        intent.putExtra("username", username)
-        intent.putExtra("gender", gender)
-        intent.putExtra("age", age.toString())
-        startActivity(intent)
-        finish()
+
     }
+
+
 
     private fun addBodyFatToDatabase(bodyFatPercentage:Int, username:String){
         val db = Firebase.firestore
-        val accountDB = db.collection("Account").document(username!!)
-        val bodyFatInformation = hashMapOf("Body_Fat_Percentage" to bodyFatPercentage)
-        accountDB.update(bodyFatInformation as Map<String, Any>)
+        val accountDB = db.collection("Account").document(username)
+        accountDB.get()
+            .addOnSuccessListener { document ->
+                var weight = document.data?.get("Weight") as Double
+                var currentMuscleMass:Int = (weight* (1-(bodyFatPercentage/100))).roundToInt()
 
+                val bodyFatInformation = hashMapOf("Body_Fat_Percentage" to bodyFatPercentage,
+                    "Current_Muscle_Mass" to currentMuscleMass)
+                accountDB.update(bodyFatInformation as Map<String, Any>)
+
+                val intent = Intent(this, physiqueActivity::class.java)
+                intent.putExtra("username", username)
+                intent.putExtra("gender", gender)
+                intent.putExtra("age", age.toString())
+                startActivity(intent)
+                finish()
+            }
     }
 }

@@ -3,5 +3,16 @@
     <string name="wheretomeasure"><u>How To Measure</u></string>
     <string name="signin"><u>Signup</u></string>
     <string name="lessActivity">[ \u003C4hr per week ]</string>
+    <string name="gW"><u>Goal Weight:</u></string>
+    <string name="cW"><u>Current Weight:</u></string>
+    <string name="gF"><u>Goal %Fat:</u></string>
+    <string name="cF"><u>Current %Fat:</u></string>
+    <string name="gM"><u>Goal Muscle Mass:</u></string>
+    <string name="cM"><u>Current Muscle Mass:</u></string>
+
+
+
+
+
 </resources>
 

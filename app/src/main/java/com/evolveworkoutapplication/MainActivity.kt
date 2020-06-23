@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             val sp = getSharedPreferences("secure", MODE_PRIVATE)
             if(sp.getBoolean("logged", false)){
-                val intent = Intent(this, homePage::class.java)
+                val intent = Intent(this, loadingActivity::class.java)
                 intent.putExtra("Activity", "Splash")
                 startActivity(intent)
                 finish()
