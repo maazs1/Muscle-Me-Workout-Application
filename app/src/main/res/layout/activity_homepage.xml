@@ -9,20 +9,51 @@
         android:layout_height="match_parent"
         >
 
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/gradStart"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/settings_vector" />
+
+        <TextView
+            android:id="@+id/homePageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/settingsButton"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-medium"
+            android:text="maaz"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24sp" />
+
+
+
+
         <ImageView
             android:id="@+id/homePageImg"
+            android:layout_below="@+id/homePageName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/male_physique_first"
+
+        />
 
         <LinearLayout
+            android:id="@+id/LH1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/homePageImg"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            >
 
             <LinearLayout
                 android:id="@+id/homePageLinearLayout1"
@@ -171,7 +202,42 @@
 
             </LinearLayout>
 
+
+
         </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/CalendarName"
+            android:layout_below="@+id/LH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="10dp"
+            android:text="Workout Schedule"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24sp"/>
+
+        <CalendarView
+            android:layout_marginTop="10dp"
+            android:id="@+id/calendarView"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="#4C4C4C"
+            android:layout_below="@+id/CalendarName"
+            android:theme="@style/CalenderViewCustom"
+            android:dateTextAppearance="@style/CalenderViewDateCustomText"
+            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+            android:layout_marginBottom="20dp"
+            />
+
+
 
     </RelativeLayout>
 

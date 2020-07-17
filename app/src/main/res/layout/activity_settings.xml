@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gradStart">
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <Button
+            android:id="@+id/changeButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/greenbutton_bg"
+            android:textColor="#FFFFFF"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp"
+            android:text="Change Username/Password" />
+        <Button
+            android:id="@+id/editProfileButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/greenbutton_bg"
+            android:textColor="#FFFFFF"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:text="Edit Profile Information" />
+
+        <Button
+            android:id="@+id/signoutButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/greenbutton_bg"
+            android:textColor="#FFFFFF"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:text="Sign Out" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_below="@+id/LinearLayoutSettings"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/redbutton"
+        android:textColor="#FFFFFF"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:text="Delete Account"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
+
+</RelativeLayout>

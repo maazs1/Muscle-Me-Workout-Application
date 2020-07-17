@@ -32,7 +32,7 @@ class loadingActivity : AppCompatActivity(){
             username = bundle?.getString("username")
         }
 
-        Handler().postDelayed(this::getImgFlag, 3000)
+        Handler().postDelayed(this::getImgFlag, 2000)
     }
 
     private fun getImgFlag(){

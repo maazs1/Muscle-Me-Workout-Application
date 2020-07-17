@@ -16,7 +16,7 @@
 
         <ImageButton
             android:id="@+id/backButtonMuscle"
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:src="@drawable/ic_arrow_back_blue_short"
             android:background="@color/gradStart"/>
