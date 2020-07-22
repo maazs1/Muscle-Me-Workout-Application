@@ -1,116 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gradStart"
 
     >
-
-    <LinearLayout
-        android:id="@+id/changeL1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-
-        >
-
-        <EditText
-            android:id="@+id/newUsername"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:textColor="#C0C0C0"
-            android:textSize="25sp"
-            android:autoSizeTextType="uniform"
-            android:paddingRight="10dp"
-            android:background="@drawable/login_bg"
-            android:paddingLeft="10dp"
-            android:layout_gravity="center"
-            />
-
-        <Button
-            android:id="@+id/changePassword"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/redbutton"
-            android:textColor="#FFFFFF"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:text="Change Password" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/L1Reveal"
-            android:layout_marginTop="40dp"
+            android:id="@+id/changeL1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:visibility="invisible" >
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="New Password"
-                android:textColor="#FFFFFFFF"
-                android:layout_marginRight="10dp"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/musclemelogo"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
 
             <EditText
-                android:id="@+id/newPassword"
-                android:layout_width="200dp"
+                android:id="@+id/newUsername"
+                android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:textColor="#C0C0C0"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:autoSizeTextType="uniform"
                 android:paddingRight="10dp"
                 android:background="@drawable/login_bg"
                 android:paddingLeft="10dp"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginTop="40dp"
                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/L2Reveal"
-            android:layout_marginTop="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:visibility="invisible" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Confirm Password"
+                android:textStyle="italic"
+                android:text="(Type in new Username)"
                 android:textColor="#FFFFFFFF"
-                android:layout_marginRight="10dp"/>
-
-            <EditText
-                android:id="@+id/confirmPassword"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:textColor="#C0C0C0"
-                android:textSize="20sp"
-                android:autoSizeTextType="uniform"
-                android:paddingRight="10dp"
-                android:background="@drawable/login_bg"
-                android:paddingLeft="10dp"
-                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp"
                 />
+
+            <Button
+                android:id="@+id/changePassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/redbutton"
+                android:textColor="#FFFFFF"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="Change Password" />
+
+            <LinearLayout
+                android:id="@+id/L1Reveal"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="New Password      "
+                    android:textColor="#FFFFFFFF"
+                    android:layout_marginRight="10dp"/>
+
+                <EditText
+                    android:id="@+id/newPassword"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:textColor="#C0C0C0"
+                    android:textSize="20sp"
+                    android:autoSizeTextType="uniform"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/login_bg"
+                    android:paddingLeft="10dp"
+                    android:gravity="center"
+                    android:inputType="textPassword"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/L2Reveal"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Confirm Password"
+                    android:textColor="#FFFFFFFF"
+                    android:layout_marginRight="10dp"/>
+
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:textColor="#C0C0C0"
+                    android:textSize="20sp"
+                    android:autoSizeTextType="uniform"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/login_bg"
+                    android:paddingLeft="10dp"
+                    android:gravity="center"
+                    android:inputType="textPassword"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/savePassword"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/greenbutton_bg"
+                android:textColor="#FFFFFF"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="Save" />
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
 
-</RelativeLayout>
+
+
+</ScrollView>
