@@ -41,13 +41,14 @@ class homePage : AppCompatActivity() {
             settingsClicked()
         }
 
+
+
     }
 
     private fun settingsClicked(){
         val intent = Intent(this, SettingsActivity::class.java)
         intent.putExtra("username", username)
         startActivity(intent)
-        finish()
     }
 
 }

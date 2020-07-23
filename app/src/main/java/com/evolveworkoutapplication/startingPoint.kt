@@ -120,6 +120,10 @@ class startingPoint : AppCompatActivity() {
             .edit()
             .putString("user", username)
             .apply()
+        getSharedPreferences(username, MODE_PRIVATE)
+            .edit()
+            .putBoolean("completeSetUp", true)
+            .apply()
     }
 
     private fun addContentToDB(){

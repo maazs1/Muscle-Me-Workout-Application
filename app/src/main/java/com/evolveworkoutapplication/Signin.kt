@@ -98,12 +98,21 @@ class Signin : AppCompatActivity() {
         accountDB.get()
             .addOnSuccessListener { document ->
                 if(document.id == username_editText.text.toString() && document.data?.get("password") == password_editText.text.toString()) {
+                    val sp = getSharedPreferences(username, MODE_PRIVATE)
+                    if (sp.getBoolean("completeSetUp", false)){
+                        val intent = Intent(this, loadingActivity::class.java)
+                        intent.putExtra("Activity", "Login")
+                        intent.putExtra("username", username)
+                        startActivity(intent)
+                        finish()
+                    }
+                    else{
+                        val intent = Intent(this, bodyInformation::class.java)
+                        intent.putExtra("username", username)
+                        startActivity(intent)
+                        finish()
+                    }
 
-
-                    val intent = Intent(this, bodyInformation::class.java)
-                    intent.putExtra("username", username)
-                    startActivity(intent)
-                    finish()
                 }else{
                     errorField.setText("Invalid Username or Password")
                     errorview()

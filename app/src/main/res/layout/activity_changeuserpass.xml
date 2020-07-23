@@ -10,8 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/backButtonUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_arrow_back_blue_short"
+            android:background="@color/gradStart"/>
+
         <LinearLayout
             android:id="@+id/changeL1"
+            android:layout_below="@+id/backButtonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -27,33 +35,22 @@
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/musclemelogo"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
+                />
 
-            <EditText
+            <TextView
                 android:id="@+id/newUsername"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:textColor="#C0C0C0"
+                android:textColor="#FFFFFFFF"
                 android:textSize="25sp"
                 android:autoSizeTextType="uniform"
                 android:paddingRight="10dp"
-                android:background="@drawable/login_bg"
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginTop="40dp"
                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="italic"
-                android:text="(Type in new Username)"
-                android:textColor="#FFFFFFFF"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:textSize="18sp"
-                />
 
             <Button
                 android:id="@+id/changePassword"
@@ -151,6 +148,7 @@
                 android:paddingTop="10dp"
                 android:textSize="18sp"
                 android:layout_gravity="center"
+                android:visibility="invisible"
                 android:text="Save" />
 
         </LinearLayout>
