@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.acitivity_physique.*
+import kotlinx.android.synthetic.main.confirm_dialogue.view.*
+import kotlinx.android.synthetic.main.workout_dialogue.view.*
 import java.math.BigInteger
 import kotlin.math.roundToInt
 
@@ -72,12 +75,35 @@ class physiqueActivity : AppCompatActivity() {
     }
 
     private fun nextActivity(){
-        val intent = Intent(this, startingPoint::class.java)
-        intent.putExtra("username", username)
-        intent.putExtra("gender", gender)
-        intent.putExtra("age", age)
-        startActivity(intent)
-        finish()
+
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.workout_dialogue, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+
+        val mAlertDialog = mBuilder.show()
+
+        mDialogView.noButton.setOnClickListener {
+            mAlertDialog.dismiss()
+            mAlertDialog.dismiss()
+            val intent = Intent(this, begginerStartingPoint::class.java)
+            intent.putExtra("username", username)
+            intent.putExtra("gender", gender)
+            intent.putExtra("age", age)
+            startActivity(intent)
+
+        }
+
+        mDialogView.yesButton.setOnClickListener {
+            mAlertDialog.dismiss()
+            val intent = Intent(this, startingPoint::class.java)
+            intent.putExtra("username", username)
+            intent.putExtra("gender", gender)
+            intent.putExtra("age", age)
+            startActivity(intent)
+
+        }
+
+
     }
 
     private fun checkFlag(gender: String?, username:String?) {

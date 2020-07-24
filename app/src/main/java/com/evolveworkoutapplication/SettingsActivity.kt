@@ -26,6 +26,9 @@ class SettingsActivity: AppCompatActivity() {
             intent.putExtra("username", username)
             startActivity(intent)
         }
+        backButtonSettings.setOnClickListener {
+            finish()
+        }
         deleteButton.setOnClickListener {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.confirm_dialogue, null)
             val mBuilder = AlertDialog.Builder(this)

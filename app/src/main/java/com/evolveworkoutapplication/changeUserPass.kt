@@ -59,7 +59,6 @@ class changeUserPass: AppCompatActivity() {
 
         backButtonUpdate.setOnClickListener {
             finish()
-
         }
     }
 

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gradStart">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        >
+
+        <ImageButton
+            android:id="@+id/backButtonSP"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_arrow_back_blue_short"
+            android:background="@color/gradStart"/>
+
+        <TextView
+            android:id="@+id/startingpointtitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="sans-serif-black"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Starting Point"
+            android:textColor="#FFFFFFFF"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/unknownTextDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startingpointtitle"
+            android:textSize="17sp"
+            android:text="[ If unknown put 0 ]"
+            android:layout_centerHorizontal="true"
+            android:textStyle="italic"
+            android:textColor="#FFFFFFFF"/>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutSP1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/unknownTextDescription"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutSPH1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Push-Ups"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Pull-Ups"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Bar/TRX Row"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Squat"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Reverse Crunch"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:textColor="#FFFFFFFF"
+                        android:text="Max Rep with no rest"
+                        android:textSize="22sp" />
+
+                    <EditText
+                        android:id="@+id/repPushup"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/login_bg"
+                        android:layout_marginTop="30dp"
+                        android:textSize="22sp"
+                        android:textColor="#C0C0C0"
+                        android:autoSizeTextType="uniform"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:inputType="number|numberDecimal"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        />
+
+                    <EditText
+                        android:id="@+id/repPullUps"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/login_bg"
+                        android:layout_marginTop="30dp"
+                        android:textSize="22sp"
+                        android:textColor="#C0C0C0"
+                        android:autoSizeTextType="uniform"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:inputType="number|numberDecimal"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        />
+                    <EditText
+                        android:id="@+id/repTRXrow"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/login_bg"
+                        android:layout_marginTop="30dp"
+                        android:textSize="22sp"
+                        android:textColor="#C0C0C0"
+                        android:autoSizeTextType="uniform"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:inputType="number|numberDecimal"
+                        android:gravity="center"
+
+                        android:layout_gravity="center"
+                        />
+                    <EditText
+                        android:id="@+id/repSquat2"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/login_bg"
+                        android:layout_marginTop="30dp"
+                        android:textSize="22sp"
+                        android:textColor="#C0C0C0"
+                        android:autoSizeTextType="uniform"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:inputType="number|numberDecimal"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        />
+                    <EditText
+                        android:id="@+id/repCrunch"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/login_bg"
+                        android:layout_marginTop="30dp"
+                        android:textSize="22sp"
+                        android:textColor="#C0C0C0"
+                        android:autoSizeTextType="uniform"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:inputType="number|numberDecimal"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/continueStartingPoint"
+            android:layout_below="@id/LinearLayoutSP1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/greenbutton_bg"
+            android:textColor="#FFFFFF"
+            android:paddingRight="70dp"
+            android:paddingLeft="70dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:text="Finish" />
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>
+
