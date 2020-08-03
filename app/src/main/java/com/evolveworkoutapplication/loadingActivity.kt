@@ -31,6 +31,10 @@ class loadingActivity : AppCompatActivity(){
         } else {
             username = bundle?.getString("username")
         }
+        getSharedPreferences("secure", MODE_PRIVATE)
+            .edit()
+            .putBoolean("logged",true)
+            .apply()
 
         Handler().postDelayed(this::getImgFlag, 2000)
     }

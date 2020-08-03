@@ -51,6 +51,13 @@ class SettingsActivity: AppCompatActivity() {
             }
         }
 
+        editProfileButton.setOnClickListener {
+            val intent = Intent(this, bodyInformation::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
+            finish()
+        }
+
         signoutButton.setOnClickListener {
             signOut()
         }
