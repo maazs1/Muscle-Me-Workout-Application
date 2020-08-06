@@ -187,7 +187,7 @@ class physiqueActivity : AppCompatActivity() {
         //goalMuscleMass= goalMuscleMass.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toFloat()
 
 
-        val goalData = hashMapOf("Goal_Weight" to goalWeight, "Goal_Muscle_Mass" to goalMuscleMass, "Flag" to flag)
+        val goalData = hashMapOf("Goal_Weight" to goalWeight, "Goal_Muscle_Mass" to goalMuscleMass, "Flag" to flag, "GoalBMI" to Lean)
         accountDB.update(goalData as Map<String, Any>)
     }
 

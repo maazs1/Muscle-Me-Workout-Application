@@ -3,6 +3,7 @@ package com.evolveworkoutapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -52,6 +53,17 @@ class SettingsActivity: AppCompatActivity() {
         }
 
         editProfileButton.setOnClickListener {
+            val db = Firebase.firestore
+            var password: String
+            val accountDB = db.collection("Account").document(username.toString())
+            accountDB.get()
+                .addOnSuccessListener { document ->
+                    password = document.data?.get("password") as String
+                    accountDB.delete()
+                    val accountData = hashMapOf("password" to password)
+                    accountDB.set(accountData)
+                }
+
             val intent = Intent(this, bodyInformation::class.java)
             intent.putExtra("username", username)
             startActivity(intent)
@@ -61,7 +73,6 @@ class SettingsActivity: AppCompatActivity() {
         signoutButton.setOnClickListener {
             signOut()
         }
-
     }
 
     private fun signOut(){

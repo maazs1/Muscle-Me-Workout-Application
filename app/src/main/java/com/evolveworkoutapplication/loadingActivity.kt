@@ -49,7 +49,7 @@ class loadingActivity : AppCompatActivity(){
                 var ImageResource: Int? = displayImg(flag, gender)
                 var goalW=(document.data?.get("Goal_Weight")?.toString())
                 var currentW=( document.data?.get("Weight")?.toString())
-                var currentBodyFP=(document.data?.get("Body_Fat_Percentage")?.toString()) + "%"
+                var currentBodyFP=(document.data?.get("Body_Fat_Percentage")?.toString())
                 var goalMuscleM =(document.data?.get("Goal_Muscle_Mass")?.toString())
                 var currentMuscleM = (document.data?.get("Current_Muscle_Mass")?.toString())
 

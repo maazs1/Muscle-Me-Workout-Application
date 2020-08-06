@@ -2,6 +2,7 @@ package com.evolveworkoutapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.CalendarView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,8 @@ import java.util.*
 class homePage : AppCompatActivity() {
 
     private var username: String? = null
+    private var currentBodyFat:Int? = null
+    private var goalBodyFat:Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,16 +24,32 @@ class homePage : AppCompatActivity() {
 
         val bundle: Bundle? = intent.extras
 
+        currentBodyFat = bundle?.getString("currentBodyFP")?.toInt()
+        goalBodyFat = bundle?.getInt("goalPF")
+
         username = bundle?.getString("username")
         goal_weight.append(" "+(bundle?.getString("goalW")))
         current_weight.append(" "+(bundle?.getString("currentW")))
-        current_fat.append(" "+(bundle?.getString("currentBodyFP")))
+        current_fat.append(" $currentBodyFat")
         goal_muscle.append(" "+(bundle?.getString("goalMuscleM")))
         current_muscle.append(" "+(bundle?.getString("currentMuscleM")))
-        goal_fat.append(" "+(bundle?.getInt("goalPF")))
+        goal_fat.append(" $goalBodyFat")
         homePageImg.setImageResource((bundle?.getInt("ImageResource"))!!)
 
         homePageName.setText(username)
+
+
+        val sp = getSharedPreferences("FirstRun", MODE_PRIVATE)
+        if (sp.getBoolean("Ran", false)){
+            Log.d("Debug", "Always show")
+        }
+        else{
+            runLoop()
+        }
+        getSharedPreferences("FirstRun", MODE_PRIVATE)
+            .edit()
+            .putBoolean("Ran",true)
+            .apply()
 
         calendarView.setOnDateChangeListener(CalendarView.OnDateChangeListener() {
                 calendarView: CalendarView, i: Int, i1: Int, i2: Int ->
@@ -40,9 +59,11 @@ class homePage : AppCompatActivity() {
         settingsButton.setOnClickListener {
             settingsClicked()
         }
+    }
 
-
-
+    private fun runLoop(){
+        val differenceFat = currentBodyFat?.minus(goalBodyFat!!)
+        Toast.makeText(this, differenceFat!!.toString(), Toast.LENGTH_SHORT).show()
     }
 
     private fun settingsClicked(){

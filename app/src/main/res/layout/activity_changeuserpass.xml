@@ -52,20 +52,6 @@
                 />
 
 
-            <Button
-                android:id="@+id/changePassword"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/redbutton"
-                android:textColor="#FFFFFF"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:text="Change Password" />
 
             <LinearLayout
                 android:id="@+id/L1Reveal"
@@ -74,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:visibility="invisible"
                 >
 
                 <TextView
@@ -108,7 +93,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:visibility="invisible"
                 >
 
                 <TextView
@@ -148,7 +132,6 @@
                 android:paddingTop="10dp"
                 android:textSize="18sp"
                 android:layout_gravity="center"
-                android:visibility="invisible"
                 android:text="Save" />
 
         </LinearLayout>

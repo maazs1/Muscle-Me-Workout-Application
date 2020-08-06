@@ -30,7 +30,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:textSize="18sp"
-            android:text="Change Username/Password" />
+            android:text="Change Password" />
         <Button
             android:id="@+id/editProfileButton"
             android:layout_width="300dp"

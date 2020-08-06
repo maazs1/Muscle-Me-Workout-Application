@@ -25,21 +25,6 @@ class changeUserPass: AppCompatActivity() {
         newUsername.setText(username)
 
 
-        changePassword.setOnClickListener {
-
-            newPassword.text.clear()
-            confirmPassword.text.clear()
-
-            if (L1Reveal.visibility==View.INVISIBLE){
-                L1Reveal.setVisibility(View.VISIBLE);
-                L2Reveal.setVisibility(View.VISIBLE);
-                savePassword.setVisibility(View.VISIBLE)
-            }else{
-                L1Reveal.setVisibility(View.INVISIBLE);
-                L2Reveal.setVisibility(View.INVISIBLE);
-                savePassword.setVisibility(View.INVISIBLE)
-            }
-        }
 
         savePassword.setOnClickListener {
             newUsername.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -85,6 +70,7 @@ class changeUserPass: AppCompatActivity() {
                         val accountDB = db.collection("Account").document(username!!)
                         accountDB.update("password", password1)
                         mAlertDialog.dismiss()
+                        finish()
                     }
 
                 }else{
