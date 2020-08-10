@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gradStart">
 
     <RelativeLayout
@@ -221,7 +222,7 @@
             android:textColor="#FFFFFFFF"
             android:textSize="24sp"/>
 
-        <CalendarView
+        <com.applandeo.materialcalendarview.CalendarView
             android:layout_marginTop="10dp"
             android:id="@+id/calendarView"
             android:layout_centerHorizontal="true"
@@ -229,13 +230,18 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:background="#4C4C4C"
             android:layout_below="@+id/CalendarName"
-            android:theme="@style/CalenderViewCustom"
-            android:dateTextAppearance="@style/CalenderViewDateCustomText"
-            android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
             android:layout_marginBottom="20dp"
-            />
+            app:headerColor="#4C4C4C"
+            app:headerLabelColor="@color/blue"
+            app:abbreviationsBarColor="#4C4C4C"
+            app:abbreviationsLabelsColor ="@color/blue"
+            app:pagesColor="#4C4C4C"
+            app:selectionColor="@color/blue"
+            app:selectionLabelColor="@color/blue"
+            app:daysLabelsColor="@color/blue"
+            app:highlightedDaysLabelsColor="@color/blue"
+            app:anotherMonthsDaysLabelsColor="@color/red" />
 
 
 

@@ -42,6 +42,11 @@ class SettingsActivity: AppCompatActivity() {
             }
 
             mDialogView.confirmButton.setOnClickListener {
+                getSharedPreferences("secure", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("logged",false)
+                    .apply()
+
                 val db = Firebase.firestore
                 val accountDB = db.collection("Account").document(username!!)
                 accountDB.delete()
