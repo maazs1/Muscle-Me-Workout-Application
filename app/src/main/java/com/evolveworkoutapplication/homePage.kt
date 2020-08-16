@@ -169,8 +169,6 @@ class homePage : AppCompatActivity() {
                 else if (diffBMI>0){
                     output="Ca"
                 }
-
-
                 Toast.makeText(this, output, Toast.LENGTH_SHORT).show()
             }
 

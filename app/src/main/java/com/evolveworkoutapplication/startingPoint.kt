@@ -104,12 +104,22 @@ class startingPoint : AppCompatActivity() {
             &&  repSP.text.toString().trim().isNotEmpty() &&  repSquat.text.toString().trim().isNotEmpty()
             && repDeadlift.text.toString().trim().isNotEmpty()
             &&  repTRow.text.toString().trim().isNotEmpty()){
-
-            addContentToDB()
+            calculateRep()
 
         }else{
             Toast.makeText(this, "Missing Fields", Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun calculateRep(){
+        val repMaxBP: Double = 5*(Math.floor(((weightBP.text.toString().trim().toInt()) + (5*((repBP.text.toString().trim().toInt())/2))).toDouble())/5)
+        val repMaxSP: Double = 5*(Math.floor(((weightSP.text.toString().trim().toInt()) + (5*((repSP.text.toString().trim().toInt())/2))).toDouble())/5)
+        val repMaxSquat: Double = 5*(Math.floor(((weightSquat.text.toString().trim().toInt()) + (5*((repSquat.text.toString().trim().toInt())/2))).toDouble())/5)
+        val repMaxDeadlift: Double = 5*(Math.floor(((weightDeadlift.text.toString().trim().toInt()) + (5*((repDeadlift.text.toString().trim().toInt())/2))).toDouble())/5)
+        val repMaxTRow: Double = 5*(Math.floor(((weightTRow.text.toString().trim().toInt()) + (5*((repTRow.text.toString().trim().toInt())/2))).toDouble())/5)
+
+        addContentToDB(repMaxBP, repMaxSP, repMaxSquat, repMaxDeadlift, repMaxTRow)
+
+
     }
     private fun sharedPrefMethod(username: String?){
         getSharedPreferences("secure", MODE_PRIVATE)
@@ -126,17 +136,19 @@ class startingPoint : AppCompatActivity() {
             .apply()
     }
 
-    private fun addContentToDB(){
+    private fun addContentToDB(repMaxBP:Double, repMaxSP:Double, repMaxSquat:Double, repMaxDeadlift:Double, repMaxTRow:Double){
 
         val db = Firebase.firestore
         val accountDB = db.collection("Account").document(username!!)
-        val startingPointInfo = hashMapOf("Max_Weight_BP" to weightBP.text.toString().trim(),
+/*        val startingPointInfo = hashMapOf("Max_Weight_BP" to weightBP.text.toString().trim(),
             "Max_Weight_SP" to weightSP.text.toString().trim(),
             "Max_Weight_Squat" to weightSquat.text.toString().trim(), "Max_Weight_Deadlift" to weightDeadlift.text.toString().trim(),
             "Max_Weight_TRow" to weightTRow.text.toString().trim(),
             "Max_Rep_BP" to repBP.text.toString().trim(), "Max_Rep_SP" to repSP.text.toString().trim(),
             "Max_Rep_Squat" to repSquat.text.toString().trim(), "Max_Rep_Deadlift" to repDeadlift.text.toString().trim(),
-            "Max_Rep_TRow" to repTRow.text.toString().trim())
+            "Max_Rep_TRow" to repTRow.text.toString().trim())*/
+        val startingPointInfo = hashMapOf("repMaxBP" to repMaxBP.toString(), "repMaxSp" to repMaxSP.toString(),  "repMaxSquat" to repMaxSquat.toString(),
+        "repMaxDeadlift" to repMaxDeadlift.toString(), "repMaxTRow" to repMaxTRow.toString())
         accountDB.update(startingPointInfo as Map<String, Any>)
         val intent = Intent(this, loadingActivity::class.java)
         intent.putExtra("username", username)

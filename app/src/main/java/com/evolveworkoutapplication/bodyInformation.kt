@@ -85,8 +85,8 @@ class bodyInformation : AppCompatActivity(){
         val height_ft: Float= height_feet.text.toString().trim().toFloat()
         val height_inc: Float= height_inch.text.toString().trim().toFloat()
         val Age: Int = age_text.text.toString().trim().toInt()
-        val weight: Float = weight_lbs.text.toString().trim().toFloat()
-        val BMI :Float = (703*weight)/(pow((height_ft*12+height_inc).toFloat(),(2)))
+        val weight: Int = weight_lbs.text.toString().trim().toInt()
+        val BMI : Int = (703*weight)/(pow((height_ft*12+height_inc),(2))).toInt()
         val Gender :String
         if (maleButton.getBackground().getConstantState()==getResources().getDrawable(R.drawable.maleimg_onclick).getConstantState()){
             Gender = "Male"
