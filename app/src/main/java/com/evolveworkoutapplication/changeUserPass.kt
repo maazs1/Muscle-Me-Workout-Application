@@ -24,8 +24,6 @@ class changeUserPass: AppCompatActivity() {
         username = bundle?.getString("username")
         newUsername.setText(username)
 
-
-
         savePassword.setOnClickListener {
             newUsername.onEditorAction(EditorInfo.IME_ACTION_DONE)
             newPassword.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -46,8 +44,6 @@ class changeUserPass: AppCompatActivity() {
             finish()
         }
     }
-
-
 
     private fun UpdateInformation(){
         val password1 : String = newPassword.text.toString().trim()

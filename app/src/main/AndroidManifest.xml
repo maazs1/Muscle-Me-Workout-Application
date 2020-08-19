@@ -39,6 +39,7 @@
         <activity android:name=".changeUserPass"
             android:parentActivityName=".SettingsActivity"/>
         <activity android:name=".begginerStartingPoint"/>
+        <activity android:name=".exerciseActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

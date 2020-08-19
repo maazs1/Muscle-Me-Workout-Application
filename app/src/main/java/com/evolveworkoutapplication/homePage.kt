@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.CalendarView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.applandeo.materialcalendarview.EventDay
@@ -47,23 +48,8 @@ class homePage : AppCompatActivity() {
 
         homePageName.setText(username)
 
-        var events: MutableList<EventDay> = ArrayList()
         val db = Firebase.firestore
         val accountDB = db.collection("Account").document(username!!)
-//        accountDB.get()
-//            .addOnSuccessListener { document ->
-//                var event: MutableList<EventDay> = document.data?.get("List") as MutableList<EventDay>
-//                calendarView.setEvents(event)
-//            }
-//        var sharedPreferences : SharedPreferences =  getSharedPreferences(username, MODE_PRIVATE)
-//        var gson: Gson = Gson()
-//        var json  = sharedPreferences.getString("event", "")
-//
-//        val type = object :
-//            TypeToken<List<EventDay?>?>() {}.type
-//        var newevent: MutableList<EventDay> = gson.fromJson(json, type)
-//        calendarView.setEvents((newevent))
-
 
         val sp = getSharedPreferences(username, MODE_PRIVATE)
         if (sp.getBoolean("Ran", false)){
@@ -78,44 +64,13 @@ class homePage : AppCompatActivity() {
             .putBoolean("Ran",true)
             .apply()
 
-
-
-        calendarView.setOnDayClickListener(object :
-            OnDayClickListener {
-            override fun onDayClick(eventDay: EventDay) {
-
-                val clickedDayCalendar = eventDay.calendar[DAY_OF_MONTH]
-                Log.d("maaz", clickedDayCalendar.toString())
-                Toast.makeText(this@homePage, clickedDayCalendar.toString(), Toast.LENGTH_SHORT).show()
-                //val calendar: Calendar = Calendar.getInstance()
-
-                events.add(EventDay(eventDay.calendar, R.drawable.bluebutton))
-//                var sharedPreferences1 : SharedPreferences =  getSharedPreferences(username, MODE_PRIVATE)
-//                var editor1 :SharedPreferences.Editor = sharedPreferences1.edit()
-//                var gson1: Gson = Gson()
-//                var json1 : String = gson1.toJson(events)
-//                editor1.putString("event", json1)
-//                editor1.apply()
-
-//                val db = Firebase.firestore
-//                val accountDB = db.collection("Account").document(username!!)
-//
-//                val goalData = hashMapOf("List" to events)
-//                accountDB.update(goalData as Map<String, Any>)
-
-
-                calendarView.setEvents(events)
-            }
-        })
-        //val selectedDate = calendarView.firstSelectedDate
-        //Toast.makeText(this, selectedDate.toString(), Toast.LENGTH_SHORT).show()
-
-/*        calendarView.setOnDateChangeListener(CalendarView.OnDateChangeListener() {
+        calendarView.setOnDateChangeListener(CalendarView.OnDateChangeListener() {
                 calendarView: CalendarView, i: Int, i1: Int, i2: Int ->
                     val date: String = (i1 + 1).toString() + "/" + i2 + "/" + i
                     Toast.makeText(this, date, Toast.LENGTH_SHORT).show()
-
-        })*/
+            val intent = Intent(this, exerciseActivity::class.java)
+            startActivity(intent)
+        })
 
         settingsButton.setOnClickListener {
             settingsClicked()
