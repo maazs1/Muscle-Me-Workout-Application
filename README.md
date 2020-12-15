@@ -21,9 +21,9 @@ Current Progress:
 
 What has to be done:
   - Generate workouts specific to the user with the information provided
-  - Display Workouts with images/gifs after a certain date is selected
+  - Display Workouts with images/gifs/videos
   - Allow users to select "Finish" if they completed their daily workout which
   will add a checkmark on the calendar letting the user monitor their progress
   - Settings option for the user to update their information or logout
-  - Design/Adjust Database to add workouts, making it easy to get data specific to the user
+
 
