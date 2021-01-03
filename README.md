@@ -18,12 +18,13 @@ Current Progress:
   there current weight, goal weight, current body fat, goal body fat, etc. This will allow the user
   to monitor their progress. The user will also be prompted to update their weight or information 
   every 2 weeks or if they plateau without seeing any changes. With this updated information, new workouts will be generated. 
+  
+  Settings Page is complete providing the User the option to edit their body information, change password, delete their account or logout. 
 
 What has to be done:
   - Generate workouts specific to the user with the information provided
   - Display Workouts with images/gifs/videos
   - Allow users to select "Finish" if they completed their daily workout which
   will add a checkmark on the calendar letting the user monitor their progress
-  - Settings option for the user to update their information or logout
 
 
