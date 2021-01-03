@@ -29,4 +29,6 @@ What has to be done:
   
 ![MuscleMe Demo](https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif)
 
+<img src="https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif" width="128"/>
+
 
