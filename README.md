@@ -1,4 +1,4 @@
-# Workout-Application - Kotlin with Firebase
+# MuscleMe-Workout-Application - Kotlin with Firebase
 
 Current Progress: 
   In this Mobile Application, the user is to sign up or sign into there account. If the user is first creating, there account they will have to 
@@ -8,7 +8,7 @@ Current Progress:
   With these muscle measurements provided from the user, it will then prompt the user to select a body physique from a variety of images. 
   After selecting the body physique, the user is to prompt there starting point weight for a variety of 
   different workouts. The app will store all this data and keep it in the database until it is needed. Calculations are made
-  through out the entire application with the information provided by the user such as BMI, 
+  through out the entire application with the information provided by the user such as calculating their BMI, 
   current muscle mass, goal muscle mass, goal body fat percentage. After filling out all the information for a new user, it will then display the homepage. 
 
   If the user has already created an account or signs in, it will take them to directly to the home page. 
@@ -18,12 +18,13 @@ Current Progress:
   there current weight, goal weight, current body fat, goal body fat, etc. This will allow the user
   to monitor their progress. The user will also be prompted to update their weight or information 
   every 2 weeks or if they plateau without seeing any changes. With this updated information, new workouts will be generated. 
+  
+  Settings Page is complete providing the User the option to edit their body information, change password, delete their account or logout. 
 
 What has to be done:
   - Generate workouts specific to the user with the information provided
-  - Display Workouts with images/gifs after a certain date is selected
+  - Display Workouts with images/gifs/videos
   - Allow users to select "Finish" if they completed their daily workout which
   will add a checkmark on the calendar letting the user monitor their progress
-  - Settings option for the user to update their information or logout
-  - Design/Adjust Database to add workouts, making it easy to get data specific to the user
+
 
