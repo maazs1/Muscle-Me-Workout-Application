@@ -29,5 +29,5 @@ What has to be done:
 
 
 <img src="https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif" width="256"/>
-
+*Keyboard items were not displaying during the recording for some reason
 
