@@ -8,7 +8,7 @@ Current Progress:
   With these muscle measurements provided from the user, it will then prompt the user to select a body physique from a variety of images. 
   After selecting the body physique, the user is to prompt there starting point weight for a variety of 
   different workouts. The app will store all this data and keep it in the database until it is needed. Calculations are made
-  through out the entire application with the information provided by the user such as BMI, 
+  through out the entire application with the information provided by the user such as calculating their BMI, 
   current muscle mass, goal muscle mass, goal body fat percentage. After filling out all the information for a new user, it will then display the homepage. 
 
   If the user has already created an account or signs in, it will take them to directly to the home page. 
