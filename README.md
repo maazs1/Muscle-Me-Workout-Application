@@ -1,4 +1,4 @@
-# Workout-Application - Kotlin with Firebase
+# MuscleMe-Workout-Application - Kotlin with Firebase
 
 Current Progress: 
   In this Mobile Application, the user is to sign up or sign into there account. If the user is first creating, there account they will have to 
