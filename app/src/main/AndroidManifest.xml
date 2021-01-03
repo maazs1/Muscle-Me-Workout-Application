@@ -40,6 +40,9 @@
             android:parentActivityName=".SettingsActivity"/>
         <activity android:name=".begginerStartingPoint"/>
         <activity android:name=".exerciseActivity"/>
+        <activity android:name=".displayWorkoutActivity"/>
+        <activity android:name=".abs"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

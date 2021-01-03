@@ -98,6 +98,7 @@ class bodyInformation : AppCompatActivity(){
         val accountDB = db.collection("Account").document(username!!)
         val profileInformation = hashMapOf("Height_Feet" to height_ft, "Height_Inch" to height_inc, "Age" to Age, "Weight" to weight, "BMI" to BMI, "Gender" to Gender)
         accountDB.update(profileInformation as Map<String, Any>)
+
         val intent = Intent(this, muscleInformation::class.java)
         intent.putExtra("username", username)
         intent.putExtra("age", Age.toString())

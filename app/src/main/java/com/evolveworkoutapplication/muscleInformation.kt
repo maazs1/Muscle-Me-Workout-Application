@@ -298,8 +298,8 @@ class muscleInformation: AppCompatActivity() {
         val accountDB = db.collection("Account").document(username)
         accountDB.get()
             .addOnSuccessListener { document ->
-                var weight = document.data?.get("Weight") as Double
-                var currentMuscleMass:Int = (weight* (1-(bodyFatPercentage/100))).roundToInt()
+                var weight: Long = (document.data?.get("Weight")) as Long
+                var currentMuscleMass:Int = ((weight* (1-(bodyFatPercentage/100))).toInt())
 
                 val bodyFatInformation = hashMapOf("Body_Fat_Percentage" to bodyFatPercentage,
                     "Current_Muscle_Mass" to currentMuscleMass)
@@ -314,3 +314,4 @@ class muscleInformation: AppCompatActivity() {
             }
     }
 }
+

@@ -140,8 +140,9 @@
 
                 <EditText
                     android:id="@+id/weight1"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
                     android:autoSizeTextType="uniform"
                     android:background="@drawable/login_bg"
                     android:gravity="center"
@@ -149,7 +150,6 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:textColor="#C0C0C0"
-                    android:layout_marginTop="15dp"
                     android:textSize="22sp" />
                 <EditText
                     android:id="@+id/weight2"
