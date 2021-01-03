@@ -26,9 +26,8 @@ What has to be done:
   - Display Workouts with images/gifs/videos
   - Allow users to select "Finish" if they completed their daily workout which
   will add a checkmark on the calendar letting the user monitor their progress
-  
-![MuscleMe Demo](https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif)
 
-<img src="https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif" width="128"/>
+
+<img src="https://github.com/maazs1/Muscle-Me-Workout-Application/blob/master/MuscleMe%20Demo.gif" width="256"/>
 
 
